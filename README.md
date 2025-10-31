@@ -4,7 +4,7 @@ O objetivo deste repositório é demonstrar o meu aprendizado na **prática** so
 # CloudFormation e automatização 
 -  O AWS CloudFormation é um serviço da AWS que auxilia na automação de criação de recursos na AWS por meio de templates escritos em JSON ou YAML.
 
-- [Arquivo YAML](Cloudformations/infra.yaml)
+- [Arquivo YAML](CloudFormation/infra.yaml)
 
 
 Nesse caso eu escolhi YAML, caso o arquivo fosse executado na AWS, o comando seria:
