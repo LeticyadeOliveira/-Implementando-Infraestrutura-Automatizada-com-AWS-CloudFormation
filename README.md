@@ -35,8 +35,14 @@ aws cloudformation create-stack \
   ├─ Security Group: permite SSH e HTTP
   └─ EC2 Instance: t2.micro
 ```
-
+(Conteúdo ilustrativo e fictícío)
 ### Objetivo: Apresentar um exemplo prático de como um arquivo YAML define recursos na AWS, como:
 - Um **bucket S3** (armazenamento de arquivos)
 - Uma **instância EC2** (máquina virtual)
 - Um **grupo de segurança** (controle de acessos)
+
+### Conclusão: 
+ Me esforcei para exemplificar o uso do **CloudFormation**, implementando uma infraestrutura automatizada de forma segura e sem acessar diretamente a AWS, para evitar custos. Com isso, pude aprender como o AWS CloudFormation funciona e interpreta arquivos YAML, automatizando a criação de recursos na AWS.
+
+#### Referências:
+[Documentação oficial da AWS](https://docs.aws.amazon.com/pt_br/forecast/latest/dg/tutorial-cloudformation.html)
