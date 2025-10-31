@@ -1,25 +1,42 @@
 # Projeto: Implementando Infraestrutura Automatizada com AWS CloudFormation
-O objetivo deste repositório é demonstrar o meu aprendizado na **prática** sobre AWS SDKs e AWS CLI, que são ferramentas de desenvolvimento e linha de comando. E implementar uma **infraestrutura automatizada com AWS CloudFormation de forma simulada e segura.**
+O objetivo deste repositório é demonstrar o meu aprendizado na **prática**  e implementar uma **infraestrutura automatizada com AWS CloudFormation de forma simulada e segura.**
 
-# CloudFormation e automatização 
+## CloudFormation e automatização 
 -  O AWS CloudFormation é um serviço da AWS que auxilia na automação de criação de recursos na AWS por meio de templates escritos em JSON ou YAML.
+-  Template do CloudFormation: **[Arquivo YAML](CloudFormation/infra.yaml)**
 
-- [Arquivo YAML](CloudFormation/infra.yaml)
-
-
-Nesse caso eu escolhi YAML, caso o arquivo fosse executado na AWS, o comando seria:
+## Funcionamento 
+- Para essa simulação eu escolhi YAML, caso esse arquivo fosse executado na AWS, o comando seria:
 ``` bash
 aws cloudformation create-stack \
-  --stack-name simulacao-luana \
+  --stack-name simulacao-leh \
   --template-body file://infra.yaml
 ```
- - O CloadFormation através desse arquivo yaml, vai:
+
+ - O **CloudFormation** através desse arquivo yaml, irá:
    1. Criar o bucket S3;
    2. Criar o grupo de segurança com portas 22 e 80 abertas;
    3. Criar a instância EC2 vinculada a esse grupo.
 
+- **Arquitetura exemplificando esse fluxo:** <br/>
+![Fluxograma CloudFormation](images/CloudFormation-Fluxo.drawio.png)
 
-## Apresentando um exemplo prático de como um arquivo YAML define recursos na AWS, como:
+## Processo: 
+  1. O desenvolvedor cria/escreve o arquvio YAML.
+  2. O CloudFormation lê e interpreta o arquivo e retorna com os recursos descritos.
+  3. Todos os recursos ficam organizados dentro de uma **stack**.
+  4. Quando a stack é excluída, todos os recursos dentro dela são removidos automaticamente.
+ ```yaml
+[CloudFormation Template]
+        │
+        ▼
+[Stack: simulacao-leh]
+  ├─ S3 Bucket: simulacao-leh-bucket
+  ├─ Security Group: permite SSH e HTTP
+  └─ EC2 Instance: t2.micro
+```
+
+### Objetivo: Apresentar um exemplo prático de como um arquivo YAML define recursos na AWS, como:
 - Um **bucket S3** (armazenamento de arquivos)
 - Uma **instância EC2** (máquina virtual)
 - Um **grupo de segurança** (controle de acessos)
